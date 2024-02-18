@@ -29,10 +29,14 @@ class GameSprite(sprite.Sprite):
 class Player(GameSprite):
     def update(self):
         keys = key.get_pressed()
-        if keys [K_LEFT] and self.rect.x > 5:
-            self.rect.x -= self.speed
-        if keys [K_RIGHT] and self.rect.x < 620:
-            self.rect.x += self.speed
+        if keys [K_w] and self.rect.y > 5:
+            self.rect.y -= self.speed
+        if keys [K_s] and self.rect.y < 350:
+            self.rect.y += self.speed
+
+racket1 = Player('racket.png', 30, 200, 50, 150,4)
+
+racket2 = Player('racket.png', 620, 200, 50, 150,4)
 
 clock = time.Clock()
 run = True
@@ -43,8 +47,11 @@ while run:
     if not finish:
         
         window.blit(background, (0, 0))
-        #player.update()
-        #player.reset()
-
+        
+        racket1.update()
+        racket1.reset()
+        racket2.update()
+        racket2.reset()
+        
     display.update()
     clock.tick(40)
