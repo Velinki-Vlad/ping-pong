@@ -39,6 +39,7 @@ class Player(GameSprite):
             self.rect.y -= self.speed
         if keys [K_DOWN] and self.rect.y < 350:
             self.rect.y += self.speed
+ball = GameSprite('tenis_ball.png', 350, 250, 50, 50, randint(1,7))
 
 racket1 = Player('racket.png', 30, 200, 50, 150,4)
 
@@ -58,6 +59,7 @@ while run:
         racket1.reset()
         racket2.update2()
         racket2.reset()
-        
+        ball.reset()
+
     display.update()
     clock.tick(40)
